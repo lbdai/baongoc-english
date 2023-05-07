@@ -1,12 +1,6 @@
-FROM openjdk:11.0.11-jre
-VOLUME /tmp
-ENV DATABASE_HOST=dockerhost
-ENV DATABASE_PORT=3306
-ENV DATABASE_NAME=english_baongoc
-ENV DATABASE_USERNAME=root
-ENV DATABASE_PASSWORD=123
-
-ADD target/english-0.0.1-SNAPSHOT.jar app.jar
-
-ENTRYPOINT exec java -jar app.jar
-
+FROM maven:lastest
+RUN mkdir /app
+WORKDIR /app
+COPY . .
+EXPOSE 8080
+CMD ["mvn", "spring-boot:run"]
