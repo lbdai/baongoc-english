@@ -1,4 +1,4 @@
-FROM maven:lastest
+FROM maven:latest
 RUN mkdir /app
 WORKDIR /app
 COPY . .
